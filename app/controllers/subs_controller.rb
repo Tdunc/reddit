@@ -4,6 +4,7 @@ class SubsController < ApplicationController
 # Model ways to manipulate database and table/record
 # Skinny Controllers / Fat Models -rails(slang)
 
+### PATTERN TO DEFINE CONTROLERS ###
 # shows all items within the model
 ## index @model_names = Model_name.all
 
@@ -27,6 +28,7 @@ class SubsController < ApplicationController
 
 # Callbacks 
 ## before_action, after_action, skip_before_action, skip_after_action, 
+### ###
 
 before_action :find_sub, only: [:show, :edit, :update, :destroy]
 
@@ -39,6 +41,8 @@ before_action :find_sub, only: [:show, :edit, :update, :destroy]
 
   def new
     @sub = Sub.new
+
+    render partial: 'form'
   end
 
   def create
@@ -52,6 +56,7 @@ before_action :find_sub, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    render partial: 'form'
   end
 
   def update
